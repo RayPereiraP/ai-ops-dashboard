@@ -1,0 +1,20 @@
+Atue como um Engenheiro de Front-end Sênior e UI/UX Designer. Construa um Dashboard Operacional de Entregas (estilo Dark Mode moderno) focado em monitoramento de tempo real para hubs logísticos.
+
+Requisitos de UI/UX:
+- Use Tailwind CSS para estilização. O design deve ser escuro, com tons de cinza chumbo, toques de neon (vermelho para alertas, verde para sucesso) e tipografia minimalista.
+- Utilize componentes do Shadcn UI (Cards, Badges, Tables, Charts).
+
+Métricas Principais (Cards no topo):
+1. Tempo Médio de Preparo (SLA: 15 min) - Mostre um indicador visual se estiver acima.
+2. Taxa de Cancelamento Diária (%).
+3. Entregadores Ativos na Região.
+4. Tickets Críticos de Suporte (CX) abertos.
+
+Sessões do Dashboard:
+- Gráfico de Linha: Pedidos por hora vs. Atrasos.
+- Tabela de Restaurantes em Alerta: Lista de parceiros com risco de churn alto (colunas: Restaurante, % Atraso, Status, Ação Recomendada).
+- Chatbot Lateral (AI Assistant): Um painel fixo à direita simulando um chat onde o gestor pode perguntar "Quais restaurantes estão gargalando a operação hoje?".
+
+Comportamento:
+- Preencha com dados falsos (mock) realistas do nicho de food delivery.
+- O layout deve ser totalmente responsivo.

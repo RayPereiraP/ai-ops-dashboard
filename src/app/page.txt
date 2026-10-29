@@ -1,0 +1,96 @@
+import React from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { AlertCircle, Clock, TrendingDown, Users } from "lucide-react";
+
+export default function OpsDashboard() {
+  return (
+    <div className="min-h-screen bg-zinc-950 text-zinc-50 p-6 flex flex-col md:flex-row gap-6 font-sans">
+      
+      {/* Área Principal */}
+      <div className="flex-1 space-y-6">
+        <header>
+          <h1 className="text-3xl font-bold tracking-tight">Hub Logístico: Visão Geral</h1>
+          <p className="text-zinc-400">Monitoramento em tempo real de SLA e Risco de Churn</p>
+        </header>
+
+        {/* KPIs */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <Card className="bg-zinc-900 border-zinc-800">
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle className="text-sm font-medium text-zinc-400">Tempo Médio de Preparo</CardTitle>
+              <Clock className="h-4 w-4 text-red-500" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold text-red-500">22.4 min</div>
+              <p className="text-xs text-zinc-500">+7.4 min acima do SLA</p>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-zinc-900 border-zinc-800">
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle className="text-sm font-medium text-zinc-400">Taxa de Cancelamento</CardTitle>
+              <TrendingDown className="h-4 w-4 text-emerald-500" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold text-emerald-500">1.2%</div>
+              <p className="text-xs text-zinc-500">-0.5% desde ontem</p>
+            </CardContent>
+          </Card>
+          
+          {/* Outros cards omitidos para brevidade no mock */}
+        </div>
+
+        {/* Tabela de Risco */}
+        <Card className="bg-zinc-900 border-zinc-800">
+          <CardHeader>
+            <CardTitle>Restaurantes em Alerta (Risco de Churn)</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              <div className="flex justify-between items-center p-3 bg-zinc-800/50 rounded-lg">
+                <div>
+                  <p className="font-semibold">Burger House Alpha</p>
+                  <p className="text-xs text-zinc-400">38% de atraso nos últimos 50 pedidos</p>
+                </div>
+                <Badge variant="destructive" className="bg-red-500/20 text-red-500">Risco Alto</Badge>
+              </div>
+              <div className="flex justify-between items-center p-3 bg-zinc-800/50 rounded-lg">
+                <div>
+                  <p className="font-semibold">Sushi Express</p>
+                  <p className="text-xs text-zinc-400">12% de cancelamento por falta de motoboy</p>
+                </div>
+                <Badge className="bg-yellow-500/20 text-yellow-500">Risco Médio</Badge>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Assistente IA (Sidebar) */}
+      <div className="w-full md:w-80 bg-zinc-900 border border-zinc-800 rounded-xl p-4 flex flex-col h-[600px] md:h-auto">
+        <div className="flex items-center gap-2 mb-4 pb-4 border-b border-zinc-800">
+          <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+          <h2 className="font-semibold">AI Ops Assistant</h2>
+        </div>
+        
+        <div className="flex-1 space-y-4 overflow-y-auto mb-4 text-sm">
+          <div className="bg-zinc-800 p-3 rounded-lg rounded-tr-none self-end max-w-[85%] ml-auto">
+            Quais restaurantes estão gargalando a operação hoje?
+          </div>
+          <div className="bg-blue-900/20 text-blue-100 p-3 rounded-lg rounded-tl-none max-w-[90%] border border-blue-900/50">
+            Analisando a região de São Paulo, o <strong>Burger House Alpha</strong> é o principal ofensor. Eles tiveram um pico de demanda às 12h, mas estão com 2 funcionários a menos na chapa. Recomendo pausar a loja no app por 30 minutos.
+          </div>
+        </div>
+
+        <div className="mt-auto">
+          <input 
+            type="text" 
+            placeholder="Pergunte sobre a operação..." 
+            className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-zinc-700"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
